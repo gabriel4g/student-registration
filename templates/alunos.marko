@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alunos</title>
+</head>
+<body>
+    <h1>Alunos</h1>
+    <a href="/form">NOVO</a>
+    <table>
+        <thead>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Curso</th>
+            <th>Opções</th>
+        </thead>
+        <for|aluno, index| of=data>
+            <tr>
+                <td>${aluno.id}</td>
+                <td>${aluno.nome}</td>
+                <td>${aluno.curso}</td>
+                <td>
+                    <a href="/form/${aluno.id}">EDITAR</a> | <a href="/alunos/delete/${aluno.id}">DELETAR</a>
+                </td>
+            </tr>
+        </for>
+    </table>
+</body>
+</html>

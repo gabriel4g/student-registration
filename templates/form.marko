@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+</head>
+<body>
+    <h1>Cadastro</h1>
+    <br>
+    <form action="/alunos" method="post">
+        <input type="hidden" name="id" value="${data.id}">
+        <input type="text" name="nome" placeholder="nome" value="${data.nome}">
+        <input type="email" name="email" placeholder="email" value="${data.email}">
+        <select name="curso">
+            <option value="" selected="${data.curso == ''}" disabled>Selecionar curso</option>
+            <option value="ads" selected="${data.curso == 'ads'}">Tecnólogo em ADS</option>
+            <option value="ipi" selected="${data.curso == 'ipi'}">Tec. em Informática para Internet</option>
+            <option value="qualidade" selected="${data.curso == 'qualidade'}">Tec. em Gestão de Qualidade</option>
+        </select>
+
+        <button type="reset">Cancelar</button>
+        <button type="submit">Salvar</button>
+    </form>
+</body>
+</html>
