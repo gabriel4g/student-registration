@@ -8,6 +8,3 @@ tmp/
 
 # Optional npm cache directory
 .npm
-
-# JS templates file
-templates/*.marko.js
