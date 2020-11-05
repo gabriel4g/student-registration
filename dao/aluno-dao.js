@@ -1,37 +1,87 @@
+const mysql = require('mysql2')
+
 class AlunoDao {
     constructor() {
-        this._alunos = [
-            {id: 1, nome: 'Gabriel', email: 'email@email.com', curso: 'ipi'},
-            {id: 2, nome: 'Pedro', email: 'email@email.com', curso: 'qualidade'},
-            {id: 3, nome: 'Lucas', email: 'email@email.com', curso: 'ads'}
-        ]
+        this._connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'root',
+            database: 'crud_node'
+        })
     }
 
     list() {
-        return this._alunos;
+        return new Promise((resolve, reject) => {
+            this._connection.query(
+                'SELECT * FROM alunos',
+                function(err, results) {
+                    if(err) {
+                        reject(err)
+                    } else {
+                        resolve(results)
+                    }
+                }
+            )
+        })
     }
 
     save(aluno) {
-        aluno.id = this._alunos.length + 1
-        this._alunos.push(aluno)
+        return new Promise((resolve, reject) => {
+            this._connection.query(
+                'INSERT INTO alunos (nome, email, curso) VALUES (?, ?, ?)', [aluno.nome, aluno.email, aluno.curso],
+                function(err, results) {
+                    if(err) {
+                        reject(err)
+                    } else {
+                        resolve(results)
+                    }
+                }
+            )
+        })
     }
 
     update(aluno) {
-        this.delete(aluno.id)
-        this._alunos.push(aluno)
+        return new Promise((resolve, reject) => {
+            this._connection.query(
+                'UPDATE alunos SET nome=?, email=?, curso=? WHERE id=?', [aluno.nome, aluno.email, aluno.curso, aluno.id],
+                function(err, results) {
+                    if(err) {
+                        reject(err)
+                    } else {
+                        resolve(results)
+                    }
+                }
+            )
+        })
     }
 
     findById(id) {
-        for(let aluno of this._alunos) {
-            if(aluno.id == id)
-                return aluno;
-        }
-        return null
+        return new Promise((resolve, reject) => {
+            this._connection.query(
+                'SELECT * FROM alunos WHERE id=?',[id],
+                function(err, results) {
+                    if(err) {
+                        reject(err)
+                    } else {
+                        resolve(results)
+                    }
+                }
+            )
+        })
     }
 
     delete(id) {
-        this._alunos = this._alunos.filter(function(aluno) {
-            return aluno.id != id
+        return new Promise((resolve, reject) => {
+            this._connection.query(
+                'DELETE FROM alunos WHERE id=?',[id],
+                function(err, results) {
+                    if(err) {
+                        reject(err)
+                    } else {
+                        resolve(results)
+                    }
+                }
+            )
         })
     }
 }

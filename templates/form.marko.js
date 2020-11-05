@@ -13,13 +13,13 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content=\"width=device-width, initial-scale=1.0\"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css integrity=sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2 crossorigin=anonymous><script src=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx crossorigin=anonymous></script><title>Cadastro</title></head><body><h1>Cadastro</h1><br><form action=/alunos method=post><input type=hidden name=id" +
+  out.w("<!DOCTYPE html><html lang=en><head><meta charset=UTF-8><meta name=viewport content=\"width=device-width, initial-scale=1.0\"><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css integrity=sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2 crossorigin=anonymous><script src=https://kit.fontawesome.com/c25abe3fb5.js crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js integrity=sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx crossorigin=anonymous></script><title>Cadastro</title></head><body class=\"bg-white text-dark\"><div class=container><h1 style=\"text-align: center; font-weight: bolder;\">CADASTRO</h1><br><form action=/alunos method=post><input type=hidden name=id" +
     marko_attr("value", data.id) +
-    "><input type=text name=nome placeholder=nome" +
+    " class=form-control> <input type=text name=nome placeholder=nome" +
     marko_attr("value", data.nome) +
-    "><input type=email name=email placeholder=email" +
+    " class=form-control><input type=email name=email placeholder=email" +
     marko_attr("value", data.email) +
-    "><select name=curso><option value" +
+    " class=form-control style=\"margin-top: 2%;\"><select name=curso class=form-control style=\"margin-top: 2%;\"><option value" +
     marko_attr("selected", data.curso == "") +
     " disabled>Selecionar curso</option><option value=ads" +
     marko_attr("selected", data.curso == "ads") +
@@ -27,11 +27,11 @@ function render(input, out, __component, component, state) {
     marko_attr("selected", data.curso == "ipi") +
     ">Tec. em Informática para Internet</option><option value=qualidade" +
     marko_attr("selected", data.curso == "qualidade") +
-    ">Tec. em Gestão de Qualidade</option></select><button type=reset>Cancelar</button><button type=submit>Salvar</button></form><script src=https://code.jquery.com/jquery-3.5.1.slim.min.js integrity=sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js integrity=sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s crossorigin=anonymous></script>");
+    ">Tec. em Gestão de Qualidade</option></select><button type=reset class=\"btn btn-danger\" style=margin:0.5vw;><i class=\"fas fa-undo-alt\"></i></button><button type=submit class=\"btn btn-primary\"><i class=\"fas fa-save\"></i></button></form></div><script src=https://code.jquery.com/jquery-3.5.1.slim.min.js integrity=sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js integrity=sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js integrity=sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s crossorigin=anonymous></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "20");
+  await_reorderer_tag({}, out, __component, "23");
 
   _preferred_script_location_tag({}, out);
 
